@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataServiceService } from '../service/data-service.service';
 import { MatSort } from '@angular/material/sort';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
+// import { BehaviorSubject ,  Observable } from 'rxjs';
 
 @Component({
   selector: 'app-default',
@@ -13,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 export class DefaultComponent implements OnInit {
 
   MyDataSource: any;
-  displayedColumns = ['id', 'userId','title','body'];
+  displayedColumns = ['id', 'userId', 'title', 'body'];
 
   constructor(public dataService: DataServiceService) { }
 

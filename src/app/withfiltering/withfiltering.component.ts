@@ -1,10 +1,9 @@
-import { Component, OnInit ,ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataServiceService } from '../service/data-service.service';
 import { MatSort } from '@angular/material/sort';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
+// import { BehaviorSubject ,  Observable } from 'rxjs';
 
 @Component({
   selector: 'app-withfiltering',
@@ -14,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
 export class WithfilteringComponent implements OnInit {
 
   MyDataSource: any;
-  displayedColumns = ['id', 'postId','name','email','body'];
+  displayedColumns = ['id', 'postId', 'name', 'email', 'body'];
   @ViewChild(MatPaginator, {static:false}) paginator: MatPaginator;
 
   constructor(public dataService: DataServiceService) { }
