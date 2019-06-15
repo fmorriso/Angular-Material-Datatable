@@ -1,5 +1,7 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
-import { MatTableDataSource,MatPaginator,MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { DataServiceService } from '../service/data-service.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
@@ -12,9 +14,9 @@ import { Observable } from 'rxjs/Observable';
 export class CombinedComponent implements OnInit {
 
   MyDataSource: any;
-  displayedColumns = ['id', 'userId','title','completed'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  displayedColumns = ['id', 'userId', 'title', 'completed'];
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
 
   constructor(public dataService: DataServiceService) { }
 
@@ -39,7 +41,7 @@ export class CombinedComponent implements OnInit {
 
   Filter(searchstring:string)
   {
-    searchstring = searchstring.trim(); 
+    searchstring = searchstring.trim();
     searchstring = searchstring.toLowerCase();
     this.MyDataSource.filter = searchstring;
   }

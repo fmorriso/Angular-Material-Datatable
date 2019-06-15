@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+//import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import 'rxjs/add/operator/map';
@@ -14,7 +15,7 @@ export class DataServiceService {
   _baseUrl: string = '';
 
   // For Using Fake API by Using It's URL
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     this._baseUrl = "https://jsonplaceholder.typicode.com/";
   }
 

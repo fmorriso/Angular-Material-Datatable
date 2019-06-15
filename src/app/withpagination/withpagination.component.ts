@@ -1,7 +1,8 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
-import { MatTableDataSource , MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { DataServiceService } from '../service/data-service.service';
-import { MatSort } from '@angular/material';
+import { MatSort } from '@angular/material/sort';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
@@ -16,7 +17,7 @@ export class WithpaginationComponent implements OnInit {
   displayedColumns = ['id', 'albumId','title','url','thumbnailUrl'];
 
   constructor(public dataService: DataServiceService) { }
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static:false}) paginator: MatPaginator;
 
   ngOnInit() {
     this.RenderDataTable();

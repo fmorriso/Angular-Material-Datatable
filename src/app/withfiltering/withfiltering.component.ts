@@ -1,7 +1,8 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
-import { MatTableDataSource,MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { DataServiceService } from '../service/data-service.service';
-import { MatSort } from '@angular/material';
+import { MatSort } from '@angular/material/sort';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
@@ -14,7 +15,7 @@ export class WithfilteringComponent implements OnInit {
 
   MyDataSource: any;
   displayedColumns = ['id', 'postId','name','email','body'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static:false}) paginator: MatPaginator;
 
   constructor(public dataService: DataServiceService) { }
 
@@ -38,7 +39,7 @@ export class WithfilteringComponent implements OnInit {
 
   Filter(searchstring:string)
   {
-    searchstring = searchstring.trim(); 
+    searchstring = searchstring.trim();
     searchstring = searchstring.toLowerCase();
     this.MyDataSource.filter = searchstring;
   }
