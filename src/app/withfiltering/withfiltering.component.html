@@ -1,0 +1,51 @@
+<mat-card>
+    <div class="alert alert-info">
+        <strong>Angular Material DataTable With Filtering</strong>
+    </div>
+    <div class="example-container mat-elevation-z8">
+        <div class="">
+            <mat-form-field style="width: 98%;">
+                <input matInput (keyup)="Filter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        </div>
+        <mat-table #Table [dataSource]="MyDataSource">
+
+            <!-- For ID -->
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+                <mat-cell *matCellDef="let post"> {{post.id}} </mat-cell>
+            </ng-container>
+
+            <!-- For Post ID -->
+            <ng-container matColumnDef="postId">
+                <mat-header-cell *matHeaderCellDef> Post ID </mat-header-cell>
+                <mat-cell *matCellDef="let post"> {{post.postId}} </mat-cell>
+            </ng-container>
+
+            <!-- For Name -->
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let post"> {{post.name}} </mat-cell>
+            </ng-container>
+
+            <!-- For Email ID -->
+            <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef> Email ID </mat-header-cell>
+                <mat-cell *matCellDef="let post"> {{post.email}} </mat-cell>
+            </ng-container>
+
+            <!-- For Body -->
+            <ng-container matColumnDef="body">
+                <mat-header-cell *matHeaderCellDef> Body Text</mat-header-cell>
+                <mat-cell *matCellDef="let post"> {{post.body}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <!-- To paginate between pages with search -->
+        <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+        </mat-paginator>
+    </div>
+</mat-card>

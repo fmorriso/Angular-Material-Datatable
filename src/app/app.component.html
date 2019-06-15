@@ -1,0 +1,16 @@
+<mat-toolbar color="accent">
+    <span>Manav Pandya - C#Corner</span>
+    <span class="demo-toolbar"></span>
+    <button mat-button href="www.asp-dotnet-mvc-tutorials.blogspot.in">Go To My Blog</button>
+    <button mat-button [matMenuTriggerFor]="menu">Select Table From Below Menu</button>
+    <mat-menu #menu="matMenu">
+        <button [routerLink]="['/Default']" mat-menu-item>Default DataTable</button>
+        <button [routerLink]="['/WithPagination']" mat-menu-item>Table With Pagination</button>
+        <button [routerLink]="['/WithFiltering']" mat-menu-item>Table With Filtering</button>
+        <button [routerLink]="['/WithSorting']" mat-menu-item>Table With Sorting</button>
+        <button [routerLink]="['/Combined']" mat-menu-item>Combined DataTable</button>
+    </mat-menu>
+</mat-toolbar>
+
+<router-outlet>
+</router-outlet>
