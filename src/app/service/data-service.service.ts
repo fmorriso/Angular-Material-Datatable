@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 // import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DataServiceService {
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
