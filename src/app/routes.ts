@@ -1,5 +1,5 @@
 import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CombinedComponent } from './combined/combined.component';
 import { WithfilteringComponent } from './withfiltering/withfiltering.component';
@@ -7,6 +7,7 @@ import { WithpaginationComponent } from './withpagination/withpagination.compone
 import { WithsortingComponent } from './withsorting/withsorting.component';
 import { DefaultComponent } from './default/default.component';
 
+const routeOptions: ExtraOptions = {enableTracing: true};
 const appRoutes: Routes = [
     { path: '', redirectTo: 'Default', pathMatch: 'full' },
     { path: 'Default', component: DefaultComponent },
@@ -17,4 +18,4 @@ const appRoutes: Routes = [
 
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, routeOptions);
