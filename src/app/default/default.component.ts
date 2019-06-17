@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+//
 import { MatTableDataSource } from '@angular/material/table';
 import { DataServiceService } from '../service/data-service.service';
-import { MatSort } from '@angular/material/sort';
-// import { BehaviorSubject ,  Observable } from 'rxjs';
 
 @Component({
   selector: 'app-default',
@@ -10,19 +9,19 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./default.component.css']
 })
 export class DefaultComponent implements OnInit {
-
   MyDataSource: any;
   displayedColumns = ['id', 'userId', 'title', 'body'];
 
-  constructor(public dataService: DataServiceService) { }
+  constructor(
+    public dataService: DataServiceService
+  ) {}
 
   ngOnInit() {
     this.RenderDataTable();
   }
 
   RenderDataTable() {
-    this.dataService.GetAllRecords()
-      .subscribe(
+    this.dataService.GetAllRecords().subscribe(
       res => {
         this.MyDataSource = new MatTableDataSource();
         this.MyDataSource.data = res;
@@ -30,7 +29,9 @@ export class DefaultComponent implements OnInit {
       },
       error => {
         console.log('There was an error while retrieving Posts !!!' + error);
-      });
+      }
+    );
   }
+
 
 }
