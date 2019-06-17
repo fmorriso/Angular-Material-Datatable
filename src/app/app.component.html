@@ -5,62 +5,25 @@
   >
   <span class="demo-toolbar"></span>
   <mat-form-field class="table-type-selector">
+    
     <mat-label>Select Table Type</mat-label>
+
     <mat-select>
 
-      <mat-option>
-        <button [routerLink]="['/Default']" mat-menu-item>
-          Default DataTable
-        </button>
-      </mat-option>
-
-      <mat-option>
-
-        <button [routerLink]="['/WithPagination']" mat-menu-item>
-          Table With Pagination
-        </button>
-
-      </mat-option>
-
-      <mat-option>
-          <button [routerLink]="['/WithFiltering']" mat-menu-item>
-            Table With Filtering
-          </button>
-      </mat-option>
-
-      <mat-option>
-          <button [routerLink]="['/WithSorting']" mat-menu-item>
-            Table With Sorting
-          </button>
-      </mat-option>
-
-      <mat-option>
-          <button [routerLink]="['/Combined']" mat-menu-item>
-            Combined DataTable
-          </button>
-      </mat-option>
+      <ng-template ngFor let-link [ngForOf]="links">
+        <mat-option>
+          <a mat-button
+            [routerLink]="link.path"
+            [routerLinkActive]="['mat-button-toggle-checked', 'active-route']"
+            #rla="routerLinkActive"
+          >{{ link.label }}</a>
+        </mat-option>
+      </ng-template>
 
     </mat-select>
+
   </mat-form-field>
 
-<!--   <button mat-button color="primary" [matMenuTriggerFor]="menu">
-    Select Table Type
-  </button>
-  <mat-menu #menu="matMenu">
-    <button [routerLink]="['/Default']" mat-menu-item>Default DataTable</button>
-    <button [routerLink]="['/WithPagination']" mat-menu-item>
-      Table With Pagination
-    </button>
-    <button [routerLink]="['/WithFiltering']" mat-menu-item>
-      Table With Filtering
-    </button>
-    <button [routerLink]="['/WithSorting']" mat-menu-item>
-      Table With Sorting
-    </button>
-    <button [routerLink]="['/Combined']" mat-menu-item>
-      Combined DataTable
-    </button>
-  </mat-menu> -->
 </mat-toolbar>
 
 <router-outlet> </router-outlet>
