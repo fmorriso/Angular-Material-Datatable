@@ -19,3 +19,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   npm i -g rxjs-tslint
   rxjs-5-to-6-migrate -p [path/to/tsconfig.json]
   ```
+## Problems encountered
+### core-js 3.x in polyfills.ts
+Error: Can't resolve 'core-js/es7/reflect' in 'C:\projects\Angular-Material-Datatable\src'
+   
+solution:
+Change the following line in `polyfills.ts` from: 
+```typescript
+import 'core-js/es7/reflect';
+```
+to
+```typescript
+import 'core-js/proposals/reflect-metadata';
+```
+
