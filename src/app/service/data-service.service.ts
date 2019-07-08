@@ -12,16 +12,16 @@ import { HttpClient } from '@angular/common/http';
 export class DataServiceService {
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  _baseUrl = '';
+  private baseUrl = '';
 
   // For Using Fake API by Using It's URL
   constructor(private http: HttpClient) {
-    this._baseUrl = 'https://jsonplaceholder.typicode.com/';
+    this.baseUrl = 'https://jsonplaceholder.typicode.com/';
   }
 
   // To fill the Datatable for Default Table [Dummy Data]
   public GetAllRecords() {
-    return this.http.get(this._baseUrl + 'posts').pipe(
+    return this.http.get(this.baseUrl + 'posts').pipe(
       map((res: Response) => {
         return res; // NOTE: changed res.json() to just res
       }),
@@ -30,7 +30,7 @@ export class DataServiceService {
 
   // To fill the Datatable with Comments [Dummy Data]
   public GetAllComments() {
-    return this.http.get(this._baseUrl + 'comments').pipe(
+    return this.http.get(this.baseUrl + 'comments').pipe(
       map((res: Response) => {
         return res;
       }),
@@ -39,7 +39,7 @@ export class DataServiceService {
 
   // To fill the Datatable with Photos [Dummy Data]
   public GetAllPhotos() {
-    return this.http.get(this._baseUrl + 'albums/1/photos').pipe(
+    return this.http.get(this.baseUrl + 'albums/1/photos').pipe(
       map((res: Response) => {
         return res;
       }),
@@ -48,7 +48,7 @@ export class DataServiceService {
 
   // To fill the Datatable with Albums [Dummy Data]
   public GetAllAlbums() {
-    return this.http.get(this._baseUrl + 'albums').pipe(
+    return this.http.get(this.baseUrl + 'albums').pipe(
       map((res: Response) => {
         return res;
       }),
@@ -57,7 +57,7 @@ export class DataServiceService {
 
   // To fill the Datatable with Todos [Dummy Data]
   public GetAllTodos() {
-    return this.http.get(this._baseUrl + 'todos').pipe(
+    return this.http.get(this.baseUrl + 'todos').pipe(
       map((res: Response) => {
         return res;
       }),
